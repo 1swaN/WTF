@@ -1,0 +1,25 @@
+.nav__list .icon {
+    display: none;
+  }
+  
+  @media screen and (max-width: 600px) {
+    .nav__list a:not(:first-child) {display: none;}
+    .nav__list a.icon {
+      float: right;
+      display: block;
+    }
+  }
+  
+  @media screen and (max-width: 600px) {
+    .nav__list.responsive {position: relative;}
+    .nav__list.responsive .icon {
+      position: absolute;
+      right: 0;
+      top: 0;
+    }
+    .nav__list.responsive a {
+      float: none;
+      display: block;
+      text-align: left;
+    }
+  }

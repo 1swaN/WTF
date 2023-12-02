@@ -1,21 +1,22 @@
-import React, { useState } from "react";
-import Counter from "./components/Counter";
-import ClassCounter from "./components/ClassCounter";
-import './styles/App.css'
-import PostItem from "./components/PostItem";
+import Header from './components/header/Header'
+import Page from './components/page/Page'
+import Menu from './scripts/script'
+
+
+import './styles/appereance.css'
+import './styles/about.css'
+import './styles/contact.css'
+import './styles/media.css'
+import './styles/nav.css'
+import './styles/settings.css'
+import './styles/simplebar.css'
+import './styles/style.css'
 
 function App() {
-  
-  const [value, setValue] = useState('текст в инпуте')
-
- 
-
   return (
-    <div className="App"> 
-     <PostItem/>
-     <PostItem/>
-     <PostItem/>
-     <PostItem/>
+    <div className="wrapper data-simplebar">
+        <Header/>
+        <Page/>
     </div>
   );
 }

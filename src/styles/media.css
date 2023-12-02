@@ -1,0 +1,45 @@
+@media screen and (min-width: 300px) and (max-width: 767px) {
+    .greet-container{
+        width: 100%;
+        align-items: center;
+        align-self: center;
+    }
+    .page__title{
+        font-size: 36px;
+        text-align: center;
+    }
+    .page__subtitle{
+        text-align: center;
+    }
+    .page__text{
+        text-align: center;
+    }
+    .about-section{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    .about-subtitle::after{
+        display: none;
+    }
+    .about-info{
+        width: 100%;
+    }
+    .about-heading__role{
+        text-align: center;
+    }
+    .about__techlist{
+        margin: 0 auto;
+        width: 70%;
+        /* text-align: center; */
+    }
+    .about__tech{
+        font-size: 16px;
+    }
+    .contact-section{
+        width: 90%;
+    }
+    .contact__form{
+        width: 100%;
+    }
+}
