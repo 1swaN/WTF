@@ -8,7 +8,7 @@ const Greet = () => {
           <p className="highlight heading-hl element-animation">
             Hello, world!
           </p>
-          <h1 className="page__title element-animation">We are WTF!</h1>
+          <h1 className="page__title element-animation"></h1>
           <h2 className="page__subtitle element-animation">
             Wow That's Fantastic!
           </h2>

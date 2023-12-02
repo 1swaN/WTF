@@ -34,7 +34,7 @@ function Menu() {
   }
 
   // прокрутка при клике
-//   const menuLinks = document.querySelectorAll(".menu__link[data-goto]");
+  const menuLinks = document.querySelectorAll(".menu__link[data-goto]");
 
 //   if (menuLinks.length > 0) {
 //     menuLinks.forEach((menuLink) => {
