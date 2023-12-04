@@ -10,7 +10,6 @@ root.render(
     <App />
     <script type="text/babel" src='./scripts/appereance.js'></script>
     <script type="text/babel" src='./scripts/header.js'></script>
-    <script type="text/babel" src='./scripts/script.js'></script>
     <script type="text/babel" src='./scripts/simplebar.js'></script>
   </React.StrictMode>
 );
