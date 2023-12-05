@@ -15,4 +15,4 @@ function myHeader() {
   };
 }
 
-export default myHeader
+export default myHeader;
