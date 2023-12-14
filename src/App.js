@@ -11,6 +11,8 @@ import './components/header/header-style.css'
 import './styles/settings.css'
 import './styles/simplebar.css'
 import './styles/style.css'
+import './components/Projects/projects.css'
+
 
 function App() {
   return (

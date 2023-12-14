@@ -98,7 +98,7 @@ function Menu() {
           </li>
           <li>
             <a data-goto=".work-section" href="#" className="menu__link">
-              <span className="highlight link-hl">02.</span>Work
+              <span className="highlight link-hl">02.</span>Projects
             </a>
           </li>
           <li>
