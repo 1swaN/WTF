@@ -29,6 +29,7 @@
     color: var(--aquamarine);
     text-indent: 5px;
     resize: none;
+    outline: none;
 }
 
 .form__btn{

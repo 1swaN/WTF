@@ -2,7 +2,6 @@ import React, { useEffect } from "react";
 import Greet from "../Greet/Greet";
 import About from "../About/About";
 import Contacts from "../Contacts/Contacts";
-import Menu from "../Menu/Menu";
 import Projects from "../Projects/Projects";
 
 const Page = () => {

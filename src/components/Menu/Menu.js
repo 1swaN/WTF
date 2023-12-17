@@ -56,21 +56,56 @@ function Menu() {
     document.body.classList.add("_pc");
   }
 
-  // прокрутка при клике
-  const menuLinks = document.querySelectorAll(".menu__link[data-goto]");
+  
+  //прокрутка при клике
+  // const menuLinks = document.querySelectorAll(".menu__link[data-goto]");
 
-  if (menuLinks.length > 0) {
-    menuLinks.forEach((menuLink) => {
-      menuLink.addEventListener("click", onMenuLinkClick);
-    });
+  // if (menuLinks.length > 0) {
+  //   menuLinks.forEach((menuLink) => {
+  //     menuLink.addEventListener("click", onMenuLinkClick);
+  //   });
 
-    function onMenuLinkClick(e) {
-      const menuLink = e.target;
-      if (
-        menuLink.dataset.goto &&
-        document.querySelector(menuLink.dataset.goto)
-      ) {
-        const gotoBlock = document.querySelector(menuLink.dataset.goto);
+  //   function onMenuLinkClick(e) {
+  //     const menuLink = e.target;
+  //     if (
+  //       menuLink.dataset.goto &&
+  //       document.querySelector(menuLink.dataset.goto)
+  //     ) {
+  //       const gotoBlock = document.querySelector(menuLink.dataset.goto);
+  //       const gotoBlockValue =
+  //         gotoBlock.getBoundingClientRect().top +
+  //         window.scrollY -
+  //         document.querySelector("header").offsetHeight;
+
+  //       window.scrollTo({
+  //         top: gotoBlockValue,
+  //         behavior: "smooth",
+  //       });
+  //       e.preventDefault();
+  //     }
+  //   }
+  // }
+  useEffect(() => {
+    const menuLinks = document.querySelectorAll('.menu__link[data-goto]');
+
+    if (menuLinks.length > 0) {
+      menuLinks.forEach(menuLink => {
+        menuLink.addEventListener('click', onMenuLinkClick);
+      });
+
+      return () => {
+        menuLinks.forEach(menuLink => {
+          menuLink.removeEventListener('click', onMenuLinkClick);
+        });
+      };
+    }
+  }, []); // Зависимость пуста, чтобы useEffect выполнялся только один раз при монтировании компонента
+
+  function onMenuLinkClick(e) {
+    const menuLink = e.target;
+    if (menuLink.dataset.goto) {
+      const gotoBlock = document.querySelector(menuLink.dataset.goto);
+      if (gotoBlock) {
         const gotoBlockValue =
           gotoBlock.getBoundingClientRect().top +
           window.scrollY -
@@ -83,7 +118,8 @@ function Menu() {
         e.preventDefault();
       }
     }
-  }
+  };
+
   return (
     <div className="header__menu menu">
       <div className="menu__icon">

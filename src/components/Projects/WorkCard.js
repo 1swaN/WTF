@@ -1,16 +1,17 @@
 import React from "react";
+import Image from "../Image";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faArrowRight } from '@fortawesome/free-solid-svg-icons'
+
+const arrow = <FontAwesomeIcon icon={faArrowRight} color="#64ffda" size="1x" />
 
 let WorkCard = () => {
   return (
-    <div class="work__card element-animation">
-      <img
-        class="card__photo"
-        src="./img/Снимок экрана 2023-12-14 в 09.57.49.png"
-        alt=""
-      ></img>
-      <div class="card__info">
-        <h3 class="card__header">Why psychotherapy matters?</h3>
-        <p class="card__text">
+    <div className="work__card element-animation">
+      <Image />
+      <div className="card__info">
+        <a className="card__header" href="https://penduloconelena.com/">Why psychotherapy matters?</a>
+        <p className="card__text">
           Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime sunt
           obcaecati voluptas, accusamus, dolore velit rerum porro debitis eum,
           consectetur aliquam dicta facilis recusandae quas voluptatum pariatur
