@@ -39,6 +39,7 @@
     color: var(--blue-zodiac);
     background-color: var(--aquamarine);
     transition: opacity .35s ease;
+    cursor: pointer;
 }
 .form__btn:hover{
     opacity: .8;

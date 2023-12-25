@@ -3,6 +3,8 @@ import ReactDOM from 'react-dom/client'; //подключение компоне
 import App from './App'; //подключение файла приложения
 import './components/Fontlib'  
 import reportWebVitals from './reportWebVitals'; //подключение доп библиотеки для повышения производительности приложения
+import './i18n'
+
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(

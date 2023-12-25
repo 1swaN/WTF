@@ -1,5 +1,17 @@
 import React, { useEffect } from "react";
 
+import { useTranslation } from 'react-i18next';
+import useLocalStorage from '../../hooks/use-localstorage';
+import i18n from '../../i18n';
+import { changeLanguage } from "i18next";
+import LanguageSwitcher from "../LanguageSwitcher/LanguageSwitcher";
+
+const locales = {
+  en: { title: 'English' },
+  ru: { title: 'Русский' },
+}
+
+
 function Menu() {
   useEffect(() => {
     const menuBody = document.querySelector(".menu__body");
@@ -55,36 +67,6 @@ function Menu() {
   } else {
     document.body.classList.add("_pc");
   }
-
-  
-  //прокрутка при клике
-  // const menuLinks = document.querySelectorAll(".menu__link[data-goto]");
-
-  // if (menuLinks.length > 0) {
-  //   menuLinks.forEach((menuLink) => {
-  //     menuLink.addEventListener("click", onMenuLinkClick);
-  //   });
-
-  //   function onMenuLinkClick(e) {
-  //     const menuLink = e.target;
-  //     if (
-  //       menuLink.dataset.goto &&
-  //       document.querySelector(menuLink.dataset.goto)
-  //     ) {
-  //       const gotoBlock = document.querySelector(menuLink.dataset.goto);
-  //       const gotoBlockValue =
-  //         gotoBlock.getBoundingClientRect().top +
-  //         window.scrollY -
-  //         document.querySelector("header").offsetHeight;
-
-  //       window.scrollTo({
-  //         top: gotoBlockValue,
-  //         behavior: "smooth",
-  //       });
-  //       e.preventDefault();
-  //     }
-  //   }
-  // }
   useEffect(() => {
     const menuLinks = document.querySelectorAll('.menu__link[data-goto]');
 
@@ -120,6 +102,10 @@ function Menu() {
     }
   };
 
+
+  const {t, i18n} = useTranslation()
+
+
   return (
     <div className="header__menu menu">
       <div className="menu__icon">
@@ -129,7 +115,7 @@ function Menu() {
         <ul className="menu__list">
           <li>
             <a data-goto=".about-section" href="#" className="menu__link">
-              <span className="highlight link-hl">01.</span>About
+              <span className="highlight link-hl">01.</span>{t('header.about')}
             </a>
           </li>
           <li>
@@ -141,6 +127,9 @@ function Menu() {
             <a data-goto=".contact-section" href="#" className="menu__link">
               <span className="highlight link-hl">03.</span>Contact
             </a>
+          </li>
+          <li>
+            <LanguageSwitcher i18n={i18n} />
           </li>
         </ul>
       </nav>
