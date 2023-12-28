@@ -1,9 +1,33 @@
 {
-    "header":{
+    "header": {
         "about": "About",
         "projects": "Projects",
         "contact": "Contacts",
         "ru": "RU",
         "en": "EN"
+    },
+    "greet":{
+        "hello":"Hello, world!",
+        "slogan":"Wow That's Fantastic!",
+        "description": "We're a group of two young web-developers, who look for new experience, projects, and feelings. Glad to see your questions and wishes. Feedback is really important for us! See ya!"
+    },
+    "about": {
+        "title": "About Us",
+        "role": "Frontend Developer - Dmitriy Kuznetsov",
+        "specialisation": "I specialize in frontend development. Working with layout, CSS and JavaScript is what I enjoy and allows me to move forward. I will be glad to help you realize your ideas.",
+        "education": "My education is an engineer, as well as I have completed frontend development courses at MSTU. While studying at the university I and a team of scientists patented a program to calculate the physical parameters of grinding complex surfaces.",
+        "list": "The list of technologies and languages I work with:"
+    },
+    "project":{
+        "title": "What have we done?"
+    },
+    "contact":{
+        "title": "Do you wanna talk?",
+        "name": "Your name",
+        "surname": "Your surname",
+        "email": "Your e-mail",
+        "text": "Write your questions here",
+        "button": "Say Hello!"
     }
+    
 }

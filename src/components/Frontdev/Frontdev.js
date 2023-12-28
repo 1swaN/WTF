@@ -1,29 +1,30 @@
 import React from "react";
 
+import { useTranslation } from 'react-i18next';
+
+
+
 const Frontdev = () => {
+  const {t, i18n} = useTranslation()
+
   return (
     <section className="page__section about-section">
       <div className="about-info">
         <h2 className="page__subtitle section-subtitle about-subtitle element-animation">
-          <span className="highlight link-hl">01.</span>About Us
+          <span className="highlight link-hl">01.</span>{t('about.title')}
         </h2>
         <div className="page__text about-info__txt">
           <h3 className="about-heading__role element-animation">
-            Frontend Developer - Dmitriy Kuznetsov
+            {t('about.role')}
           </h3>
           <p className="element-animation">
-            I specialize in frontend development. Working with layout, CSS and
-            JavaScript is what I enjoy and allows me to move forward. I will be
-            glad to help you realize your ideas.
+            {t('about.specialisation')}
           </p>
           <p className="element-animation">
-            My education is an engineer, as well as I have completed frontend
-            development courses at MSTU. While studying at the university I and
-            a team of scientists patented a program to calculate the physical
-            parameters of grinding complex surfaces.
+            {t('about.education')}
           </p>
           <div className="element-animation">
-            The list of technologies and languages I work with:
+            {t('about.list')}
             <ul className="about__techlist element-animation">
               <li className="about__tech">JavaScript</li>
               <li className="about__tech">React</li>

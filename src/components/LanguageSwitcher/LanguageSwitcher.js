@@ -16,7 +16,6 @@ const LanguageSwitcher = ({ i18n }) => {
   return (
     <li>
       <a
-        href="#"
         className={`menu__link ${i18n.language === 'ru' ? 'active' : ''}`}
         onClick={() => handleLanguageChange(i18n.language === 'ru' ? 'en' : 'ru')}
       >

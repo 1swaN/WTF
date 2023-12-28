@@ -6,11 +6,6 @@ import i18n from '../../i18n';
 import { changeLanguage } from "i18next";
 import LanguageSwitcher from "../LanguageSwitcher/LanguageSwitcher";
 
-const locales = {
-  en: { title: 'English' },
-  ru: { title: 'Русский' },
-}
-
 
 function Menu() {
   useEffect(() => {
@@ -120,12 +115,12 @@ function Menu() {
           </li>
           <li>
             <a data-goto=".work-section" href="#" className="menu__link">
-              <span className="highlight link-hl">02.</span>Projects
+              <span className="highlight link-hl">02.</span>{t('header.projects')}
             </a>
           </li>
           <li>
             <a data-goto=".contact-section" href="#" className="menu__link">
-              <span className="highlight link-hl">03.</span>Contact
+              <span className="highlight link-hl">03.</span>{t('header.contact')}
             </a>
           </li>
           <li>

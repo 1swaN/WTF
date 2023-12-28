@@ -1,22 +1,25 @@
 import React from "react";
 
+import { useTranslation } from 'react-i18next';
+
 const Greet = () => {
+
+  const {t, i18n} = useTranslation()
+
   return (
     <div>
       <section className="page__section greet-section">
         <div className="greet-container">
           <p className="highlight heading-hl element-animation">
-            Hello, world!
+            {t('greet.hello')}
           </p>
           <h1 className="page__title element-animation"></h1>
           <h2 className="page__subtitle element-animation">
-            Wow That's Fantastic!
+            {t('greet.slogan')}
           </h2>
           <div className="page__text element-animation">
             <p>
-              We're a group of two young web-developers, who looks for new
-              experience, projects and feelings. Glad to see your questions and
-              wishes. Feedback is really important for us! See ya!
+             {t('greet.description')}
             </p>
           </div>
         </div>
