@@ -1,9 +1,6 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 
 import { useTranslation } from 'react-i18next';
-
-
-
 
 function Form(){
     const {t, i18n} = useTranslation()
@@ -18,23 +15,66 @@ function Form(){
     const [emailDirty, setEmailDirty] = useState(false)
     const [textDirty, setTextDirty] = useState(false)
 
-    const [nameError, setNameError] = useState('The name field cannot be empty')
-    const [surnameError, setSurnameError] = useState('The surname field cannot be empty')
-    const [emailError, setEmailError] = useState('The e-mail field cannot be empty')
-    const [textError, setTextError] = useState('The text field cannot be empty')
+    const [nameError, setNameError] = useState('This field cannot be empty')
+    const [surnameError, setSurnameError] = useState('This field cannot be empty')
+    const [emailError, setEmailError] = useState('This field cannot be empty')
+    const [textError, setTextError] = useState('This field cannot be empty')
+
+    const [formValid, setFormValid] = useState(false)
+
+
+    useEffect(() =>{
+        if(nameError || surnameError || emailError || textError){
+            setFormValid(false)
+        }else{
+            setFormValid(true)
+        }
+    }, [nameError, surnameError, emailError, textError])
 
 
     const nameHandler = (e) =>{
         setName(e.target.value)
+        if(e.target.value.length < 2){
+            setNameError('The length of the name should be more than 2 symbols')
+            if(!e.target.value){
+                setNameError('This field cannot be empty')
+            }
+        }else{
+            setNameError('')
+        }
+    }
+
+    const surnameHandler = (e) =>{
+        setSurname(e.target.value)
+        if(e.target.value.length < 2){
+            setSurnameError('The length of the surname should be more than 2 symbols')
+            if(!e.target.value){
+                setSurnameError('This field cannot be empty')
+            }
+        }else{
+            setSurnameError('')
+        }
     }
 
     const emailHandler = (e) =>{
-        setName(e.target.value)
+        setEmail(e.target.value)
         const re = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|.(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
         if(!re.test(String(e.target.value).toLowerCase())){
             setEmailError('Invalid e-mail. Try again')
         }else{
             setEmailError('')
+        }
+    }
+
+    const textHandler = (e) =>{
+        setText(e.target.value)
+        if(e.target.value.length < 2){
+            setTextError('The length of your text wishes should be longer')
+            if(!e.target.value){
+                setTextError('This field cannot be empty')
+            }
+        }else{
+            setTextError('')
         }
     }
 
@@ -61,13 +101,13 @@ function Form(){
         <form className="contact__form">
             {(nameDirty && nameError) && <div>{nameError}</div>}
           <input
-            value={name} onBlur={e => blurHandler(e)} className="name__input input form__control element-animation"
+            onChange={e => nameHandler(e)} value={name} onBlur={e => blurHandler(e)} className="name__input input form__control element-animation"
             type="text"
             placeholder={t('contact.name')} name="name"
           />
           {(surnameDirty && surnameError) && <div>{surnameError}</div>}
           <input
-            value={surname} onBlur={e => blurHandler(e)} className="surname__input input form__control element-animation"
+            onChange={e => surnameHandler(e)} value={surname} onBlur={e => blurHandler(e)} className="surname__input input form__control element-animation"
             type="text"
             placeholder={t('contact.surname')} name="surname"
           />
@@ -79,12 +119,12 @@ function Form(){
           />
           {(textDirty && textError) && <div>{textError}</div>}
           <textarea
-            value={text} onBlur={e => blurHandler(e)} className="form__textarea form__control element-animation"
+            onChange={e => textHandler(e)} value={text} onBlur={e => blurHandler(e)} className="form__textarea form__control element-animation"
             name="text"
             id="text"
             placeholder={t('contact.text')}></textarea>
           <button
-            className="form__btn form__control element-animation"
+            disabled={!formValid} className="form__btn form__control element-animation"
             type="submit" name="submit"
           >
             {t('contact.button')}
