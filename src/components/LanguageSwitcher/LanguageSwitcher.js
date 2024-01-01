@@ -15,13 +15,12 @@ const LanguageSwitcher = ({ i18n }) => {
 
   return (
     <li>
-      <a
-        className={`menu__link ${i18n.language === 'ru' ? 'active' : ''}`}
+      <button
+        className={`lang-btn ${i18n.language === 'ru' ? 'active' : ''}`}
         onClick={() => handleLanguageChange(i18n.language === 'ru' ? 'en' : 'ru')}
       >
-        <span className="highlight link-hl">04.</span>
         {t(i18n.language === 'ru' ? 'EN' : 'RU')}
-      </a>
+      </button>
     </li>
   );
 };

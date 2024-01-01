@@ -1,8 +1,10 @@
 import React, { useEffect, useState } from "react";
-
 import { useTranslation } from 'react-i18next';
+import axios from "axios";
 
 function Form(){
+
+    // form validation
     const {t, i18n} = useTranslation()
 
     const [name, setName] = useState('')
@@ -41,6 +43,7 @@ function Form(){
             }
         }else{
             setNameError('')
+            setData({ ...data, [e.target.name]: e.target.value });
         }
     }
 
@@ -53,6 +56,7 @@ function Form(){
             }
         }else{
             setSurnameError('')
+            setData({ ...data, [e.target.name]: e.target.value });
         }
     }
 
@@ -63,6 +67,7 @@ function Form(){
             setEmailError('Invalid e-mail. Try again')
         }else{
             setEmailError('')
+            setData({ ...data, [e.target.name]: e.target.value });
         }
     }
 
@@ -75,6 +80,7 @@ function Form(){
             }
         }else{
             setTextError('')
+            setData({ ...data, [e.target.name]: e.target.value });
         }
     }
 
@@ -95,27 +101,44 @@ function Form(){
                 break
         }
     }
+    // end of validation
 
 
+    // data POST
+    const [data, setData] = useState({ name: "", email: "" });
+    const [response, setResponse] = useState("");
+  
+  
+    const handleSubmit = (event) => {
+      event.preventDefault();
+      axios
+        .post("https://jsonplaceholder.typicode.com/users", data)
+        .then((response) => {
+          setResponse(response.data);
+        })
+        .catch((error) => {
+          console.log(error);
+        });
+    }
     return(
-        <form className="contact__form">
+        <form className="contact__form" onSubmit={handleSubmit} action="../database/send.php" method="post">
             {(nameDirty && nameError) && <div>{nameError}</div>}
           <input
             onChange={e => nameHandler(e)} value={name} onBlur={e => blurHandler(e)} className="name__input input form__control element-animation"
             type="text"
-            placeholder={t('contact.name')} name="name"
+            placeholder={t('contact.name')} name="name" required
           />
           {(surnameDirty && surnameError) && <div>{surnameError}</div>}
           <input
             onChange={e => surnameHandler(e)} value={surname} onBlur={e => blurHandler(e)} className="surname__input input form__control element-animation"
             type="text"
-            placeholder={t('contact.surname')} name="surname"
+            placeholder={t('contact.surname')} name="surname" required
           />
           {(emailDirty && emailError) && <div>{emailError}</div>}
           <input
             onChange={e => emailHandler(e)} value={email} onBlur={e => blurHandler(e)} className="email__input input form__control element-animation"
             type="email"
-            placeholder={t('contact.email')} name="email"
+            placeholder={t('contact.email')} name="email" required
           />
           {(textDirty && textError) && <div>{textError}</div>}
           <textarea

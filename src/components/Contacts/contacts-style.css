@@ -49,6 +49,12 @@
     top: 1px;
     left: 1px;
 }
+.form__btn:disabled{
+    background-color: var(--blue-zodiac);
+    color: var(--aquamarine);
+    border: 1px solid;
+    border-color: var(--aquamarine);
+}
 
 .form__control{
     border: 1px solid var(--aquamarine);

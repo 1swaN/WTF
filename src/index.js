@@ -7,6 +7,9 @@ import './i18n'
 
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
+
+
+
 root.render(
   <React.StrictMode>
     <App />
@@ -15,5 +18,7 @@ root.render(
     <script type="text/babel" src='./scripts/simplebar.js'></script>
   </React.StrictMode>
 );
+
+
 
 reportWebVitals();
