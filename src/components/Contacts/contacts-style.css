@@ -55,10 +55,20 @@
     border: 1px solid;
     border-color: var(--aquamarine);
 }
+.form__btn:active:disabled{
+    position: relative;
+    top: 0px;
+    left: 0px;
+}
 
 .form__control{
     border: 1px solid var(--aquamarine);
     border-radius: 8px;
     font-family: 'Outfit', sans-serif;
     font-size: 18px;
+    margin-top: 10px;
 }
+/* .form__error{
+    position: absolute;
+    top: 10px;
+} */

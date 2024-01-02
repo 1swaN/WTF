@@ -42,22 +42,28 @@
     .contact__form{
         width: 100%;
     }
-}
-@media screen and (min-width: 300px) and (max-width: 767px){
-    .work__subtitle::after{
-      display: none;
+    .card__header{
+        text-align: center;
     }
+    
+}
+
+@media screen and (min-width: 300px) and (max-width: 767px) {
     .work__card {
-      flex-direction: column;
-      padding: 25px 10px 25px 10px;
-      text-align: center;
+        display: flex;
+        flex-direction: column !important;
+        padding: 25px 10px !important;
+        text-align: center !important;
     }
     .card__photo {
-      width: 100%;
-      height: 200px;
-      border-radius: 10px;
+        width: 100% !important;
+        height: 200px !important;
+        border-radius: 10px !important;
     }
-    .card__header{
-      text-align: center;
+    .card__info{
+        padding-right: 0 !important;
     }
-  }
+    .work__subtitle::after{
+        display: none !important;
+    }
+}
