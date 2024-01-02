@@ -1,9 +1,9 @@
 import React from "react";
-import { useTranslation } from 'react-i18next';
+import { useTranslation } from "react-i18next";
 
 const locales = {
-  en: { title: 'English' },
-  ru: { title: 'Русский' },
+  en: { title: "English" },
+  ru: { title: "Русский" },
 };
 
 const LanguageSwitcher = ({ i18n }) => {
@@ -15,12 +15,23 @@ const LanguageSwitcher = ({ i18n }) => {
 
   return (
     <li>
-      <button
-        className={`lang-btn ${i18n.language === 'ru' ? 'active' : ''}`}
-        onClick={() => handleLanguageChange(i18n.language === 'ru' ? 'en' : 'ru')}
+      <label
+        className={`switch ${i18n.language === "ru" ? "active" : ""}`}
+        htmlFor="languageSwitch"
       >
-        {t(i18n.language === 'ru' ? 'EN' : 'RU')}
-      </button>
+        <input
+          type="checkbox"
+          checked={i18n.language === "ru"}
+          onChange={() =>
+            handleLanguageChange(i18n.language === "ru" ? "en" : "ru")
+          }
+          id="languageSwitch"
+        />
+        <span className="slider round"></span>
+      </label>
+      <span className="language-prefix">
+        {t(i18n.language === "ru" ? "EN" : "RU")}
+      </span>
     </li>
   );
 };

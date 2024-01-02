@@ -9,8 +9,8 @@ let WorkCard = () => {
   return (
     <div className="work__card element-animation">
       <Image />
-      <div className="card__info">
-        <a className="card__header" href="https://penduloconelena.com/">Why psychotherapy matters?</a>
+      <div className="card__info" href="https://penduloconelena.com/" target="_blank">
+        <a className="card__header" href="https://penduloconelena.com/" target="_blank">Why psychotherapy matters?</a>
         <p className="card__text">
           Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime sunt
           obcaecati voluptas, accusamus, dolore velit rerum porro debitis eum,

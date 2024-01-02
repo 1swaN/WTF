@@ -7,7 +7,7 @@
 
 html, body{
   height: 100%;
-  font-family: 'Outfit', sans-serif;
+  font-family: 'Overpass', sans-serif;
   scroll-behavior: smooth;
 }
 
@@ -81,11 +81,13 @@ body{
 
 .link-hl{
   margin-right: 8px;
-  font-family: 'Quantico', sans-serif;
+  /* font-family: 'Quantico', sans-serif; */
+  font-family: 'Tektur', sans-serif;
 }
 
 .sub-font{
-  font-family: 'Quantico', sans-serif;
+  /* font-family: 'Quantico', sans-serif; */
+  font-family: 'Tektur', sans-serif;
 }
 .greeting{
   position: relative;
