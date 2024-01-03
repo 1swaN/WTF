@@ -4,12 +4,48 @@ import { useTranslation } from "react-i18next";
 import { useValidation, useInput } from "../hooks/use-form-validate";
 
 function Form() {
+  const handleSubmit = async (event) => {
+    event.preventDefault(); // Предотвращаем стандартное поведение формы (перезагрузка страницы)
+
+    // Ваши данные для отправки на сервер
+    const formData = {
+      name: name.value,
+      surname: surname.value,
+      email: email.value,
+      text: text.value,
+    };
+
+    try {
+      const response = await fetch("path/to/your/server-script.php", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(formData),
+      });
+
+      if (response.ok) {
+        const data = await response.json();
+        console.log("Server response:", data);
+        // Здесь вы можете обработать успешный ответ от сервера, если нужно
+      } else {
+        console.error("Server response error:", response.status, response.statusText);
+        // Здесь вы можете обработать ошибку от сервера, если нужно
+      }
+    } catch (error) {
+      console.error("Fetch error:", error);
+      // Здесь вы можете обработать ошибку fetch, если нужно
+    }
+  };
+
   // form validation
   const { t, i18n } = useTranslation();
   const email = useInput("", { isEmpty: true, minLength: 5, isEmail: true });
   const name = useInput("", { isEmpty: true, minLength: 2 });
   const surname = useInput("", { isEmpty: true, minLength: 2 });
   const text = useInput("", { isEmpty: true, minLength: 2 });
+
+ 
 
   return (
     <form className="contact__form" action="../database/send.php" method="post">
@@ -82,7 +118,7 @@ function Form() {
         id="text"
         placeholder={t("contact.text")}
       ></textarea>
-      <button
+      <button onSubmit={handleSubmit}
         disabled={
           !name.inputValid ||
           !surname.inputValid ||

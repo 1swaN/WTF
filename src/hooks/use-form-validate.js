@@ -32,6 +32,7 @@ export const useValidation = (value, validators) => {
             setInputValid(false)
         }else{
             setInputValid(true)
+            
         }
     }, [isEmpty, emailError, minLengthError])
 

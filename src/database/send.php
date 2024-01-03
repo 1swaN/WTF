@@ -1,40 +1,43 @@
 <?php
-    //получение данных с формы 
-    $name = $_POST['name']
-    $surname = $_POST['surname']
-    $email = $_POST['email']
-    $text = $_POST['text']
-    
-    // обработка получаемых данных
+use PHPMailer\PHPMailer\PHPMailer;
+use PHPMailer\PHPMailer\Exception;
 
-    $name = htmlspecialchars($name)
-    $surname = htmlspecialchars($surname)
-    $email = htmlspecialchars($email)
-    $text = htmlspecialchars($text)
+// Подключаем PHPMailer
+require 'path/to/your/PHPMailer/Exception.php';
+require 'path/to/your/PHPMailer/PHPMailer.php';
+require 'path/to/your/PHPMailer/SMTP.php';
 
-    $name = urldecode($name)
-    $surname = urldecode($surname)
-    $email = urldecode($email)
-    $text = urldecode($text)
+// Получаем данные из формы
+$name = $_POST['name'];
+$email = $_POST['email'];
+// Другие поля формы
 
-    $name = trim($name)
-    $surname = trim($surname)
-    $email = trim($email)
-    $text = trim($text)
+// Создаем экземпляр PHPMailer
+$mail = new PHPMailer();
 
-    // отправка данных на почту
+// Настраиваем параметры для отправки через SMTP
+$mail->isSMTP();
+$mail->Host = 'smtp.your-email-provider.com'; // Укажите свой SMTP-сервер
+$mail->SMTPAuth = true;
+$mail->Username = 'your-email@example.com'; // Укажите свой email
+$mail->Password = 'your-email-password'; // Укажите пароль от почты
+$mail->SMTPSecure = 'tls';
+$mail->Port = 587;
 
-    if(mail("dmitriy31.kuznetsov@gmail.com",
-        "Новое письмо с сайта-портфолио",
-        "Имя заказчика:".$name."\n".
-        "Фамилия заказчика:".$surname."\n".
-        "Почта заказчика:".$email."\n".
-        "Комментарий заказчика:".$text."\n".)
-    ){
-        print('your letter has been successfully sended')
-    }
-    else{
-        print('ERROR! Check your data!')
-    }
+// Настройки письма
+$mail->setFrom('your-email@example.com', 'Your Name');
+$mail->addAddress('recipient@example.com', 'Recipient Name');
+$mail->Subject = 'Новая форма отправлена';
+$mail->Body = "Имя: $name\nEmail: $email\n"; // Добавьте другие поля по необходимости
 
+// Отправляем письмо
+if ($mail->send()) {
+    $response = ['success' => true, 'message' => 'Форма успешно отправлена'];
+} else {
+    $response = ['success' => false, 'message' => 'Ошибка отправки формы'];
+}
+
+// Возвращаем ответ клиенту в формате JSON
+header('Content-type: application/json');
+echo json_encode($response);
 ?>
