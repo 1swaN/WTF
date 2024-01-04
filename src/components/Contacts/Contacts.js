@@ -1,6 +1,7 @@
 import React from "react";
 import { useTranslation } from 'react-i18next';
 import Form from "../Form";
+import './contacts-style.css'
 
 const Contacts = () => {
   const {t, i18n} = useTranslation()

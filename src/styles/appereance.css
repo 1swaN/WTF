@@ -1,5 +1,4 @@
 .element-animation{
-    /* opacity: 0; временно убрал*/
     opacity: 0;
     transform: translateY(20px);
 }

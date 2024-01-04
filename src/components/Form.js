@@ -1,9 +1,10 @@
 import React, { useEffect, useState } from "react";
 import { useTranslation } from "react-i18next";
-// import axios from "axios";
+import Modal from "./Modal/Modal";
 import { useValidation, useInput } from "../hooks/use-form-validate";
 
 function Form() {
+  const [modalActive, setModalActive] = useState(false);
   const handleSubmit = async (event) => {
     event.preventDefault(); // Предотвращаем стандартное поведение формы (перезагрузка страницы)
 
@@ -28,6 +29,7 @@ function Form() {
         const data = await response.json();
         console.log("Server response:", data);
         // Здесь вы можете обработать успешный ответ от сервера, если нужно
+        setModalActive(true);
       } else {
         console.error("Server response error:", response.status, response.statusText);
         // Здесь вы можете обработать ошибку от сервера, если нужно
@@ -125,12 +127,18 @@ function Form() {
           !email.inputValid ||
           !text.inputValid
         }
+        onClick={() => setModalActive(true)}
         className="form__btn form__control element-animation"
         type="submit"
         name="submit"
       >
         {t("contact.button")}
       </button>
+      {/* <Modal active={modalActive} setActive={setModalActive}>
+        <p>
+          Thank you!<br></br>Your request is successfully sended!
+        </p>
+      </Modal> */}
     </form>
   );
 }

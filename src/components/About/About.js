@@ -1,6 +1,7 @@
 import React from "react";
 import Frontdev from "../Frontdev/Frontdev";
 import Backdev from "../Backdev/Backdev";
+import './about-style.css'
 
 
 const About = () => {

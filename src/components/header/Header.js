@@ -3,6 +3,7 @@ import ReactDOM from "react-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCode } from "@fortawesome/free-solid-svg-icons";
 import Menu from "../Menu/Menu.js";
+import './header-style.css'
 
 const logo = <FontAwesomeIcon icon={faCode} color="#64ffda" size="2x" />;
 

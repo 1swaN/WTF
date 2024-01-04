@@ -1,6 +1,7 @@
 import React from "react";
 import WorkCard from "./WorkCard";
 import { useTranslation } from 'react-i18next';
+import './projects.css'
 
 const Projects = () => {
   const {t, i18n} = useTranslation()
