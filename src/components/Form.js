@@ -2,6 +2,10 @@ import React, { useEffect, useState } from "react";
 import { useTranslation } from "react-i18next";
 import Modal from "./Modal/Modal";
 import { useValidation, useInput } from "../hooks/use-form-validate";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faPersonCircleCheck } from "@fortawesome/free-solid-svg-icons";
+
+const sign = <FontAwesomeIcon icon={faPersonCircleCheck} size="2x" marginRight="10px"/>
 
 function Form() {
   const [modalActive, setModalActive] = useState(false);
@@ -134,11 +138,12 @@ function Form() {
       >
         {t("contact.button")}
       </button>
-      {/* <Modal active={modalActive} setActive={setModalActive}>
+      <Modal active={modalActive} setActive={setModalActive}>
+        {sign}
         <p>
           Thank you!<br></br>Your request is successfully sended!
         </p>
-      </Modal> */}
+      </Modal>
     </form>
   );
 }

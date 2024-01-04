@@ -5,6 +5,7 @@ import { Suspense } from 'react'
 import { useTranslation } from 'react-i18next';
 import useLocalStorage from './hooks/use-localstorage';
 import i18n from './i18n';
+import Loader from './components/Loader/Loader';
 
 
 import './styles/appereance.css'
@@ -28,12 +29,17 @@ function App() {
     }
   }
 
+  
+
 
   return (
-    <div className="wrapper data-simplebar">
+    <div>
+      <div className="wrapper data-simplebar">
         <Header/>
         <Page/>
+      </div>
     </div>
+    
   );
 }
 
