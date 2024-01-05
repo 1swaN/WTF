@@ -56,10 +56,10 @@ function Form() {
   return (
     <form className="contact__form" action="../database/send.php" method="post">
       {name.isDirty && name.isEmpty && (
-        <div className="form__error">The input can't be empty</div>
+        <div className="form__error">{t("error.empty")}</div>
       )}
       {name.isDirty && name.minLengthError && (
-        <div className="form__error">Incorrect length</div>
+        <div className="form__error">{t("error.length")}</div>
       )}
       <input
         onBlur={(e) => name.onBlur(e)}
@@ -73,10 +73,10 @@ function Form() {
       />
 
       {surname.isDirty && surname.isEmpty && (
-        <div className="form__error">The input can't be empty</div>
+        <div className="form__error">{t("error.empty")}</div>
       )}
       {surname.isDirty && surname.minLengthError && (
-        <div className="form__error">Incorrect length</div>
+        <div className="form__error">{t("error.length")}</div>
       )}
       <input
         onBlur={(e) => surname.onBlur(e)}
@@ -90,13 +90,13 @@ function Form() {
       />
 
       {email.isDirty && email.emailError && (
-        <div className="form__error">Incorrect e-mail format</div>
+        <div className="form__error">{t("error.invalidEmail")}</div>
       )}
       {email.isDirty && email.isEmpty && (
-        <div className="form__error">The input can't be empty</div>
+        <div className="form__error">{t("error.empty")}</div>
       )}
       {email.isDirty && email.minLengthError && (
-        <div className="form__error">Incorrect length</div>
+        <div className="form__error">{t("error.length")}</div>
       )}
       <input
         onBlur={(e) => email.onBlur(e)}
@@ -110,10 +110,10 @@ function Form() {
       />
 
       {text.isDirty && text.isEmpty && (
-        <div className="form__error">The input can't be empty</div>
+        <div className="form__error">{t("error.empty")}</div>
       )}
       {text.isDirty && text.minLengthError && (
-        <div className="form__error">Incorrect length</div>
+        <div className="form__error">{t("error.length")}</div>
       )}
       <textarea
         onBlur={(e) => text.onBlur(e)}
@@ -141,7 +141,11 @@ function Form() {
       <Modal active={modalActive} setActive={setModalActive}>
         {sign}
         <p>
-          Thank you!<br></br>Your request is successfully sended!
+          {t("contact.modalThanks")}
+        </p>
+        <br></br>
+        <p>
+          {t("contact.modalRequest")}
         </p>
       </Modal>
     </form>

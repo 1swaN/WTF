@@ -27,7 +27,14 @@
         "surname": "Your surname",
         "email": "Your e-mail",
         "text": "Write your questions here",
-        "button": "Say Hello!"
+        "button": "Say Hello!",
+        "modalThanks": "Thank you!",
+        "modalRequest": "Your request is seccessfully sended!"
+    },
+    "error":{
+        "length": "Incorrect length",
+        "invalidEmail": "Incorrect e-mail format",
+        "empty": "The input can't be empty"
     }
     
 }
