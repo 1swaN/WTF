@@ -10,7 +10,7 @@
   align-items: center;
   border: 1px solid transparent;
   border-radius: 10px;
-  transition: all 0.4s ease-in-out;
+  transition: all 0.10s ease-in-out;
   padding: 50px;
 }
 .work__subtitle{
@@ -33,8 +33,6 @@
   font-size: 22px;
   color: var(--rock-blue);
   padding-bottom: 2px;
-  border-bottom: 1px solid transparent;
-  transition: all 0.4s ease-in-out;
 }
 .card__header:hover {
   border-color: var(--rock-blue);
@@ -57,3 +55,24 @@
   line-height: 1.5em;
 }
 
+
+.link-ease-in-out a {
+  display: inline-block;
+  text-decoration: none; /* Убираем подчеркивание */
+  cursor: pointer;
+}
+.link-ease-in-out a:after {
+  background-color: var(--outline); /* Цвет линии при наведении на нее курсора мыши */
+  display: block;
+  content: "";
+  height: 2px; /* Высота линии */
+  width: 0%;
+  -webkit-transition: width .3s ease-in-out;
+  -moz--transition: width .3s ease-in-out;
+  transition: width .3s ease-in-out;
+}
+.link-ease-in-out a:hover:after,
+.link-ease-in-out a:focus:after {
+  width: 100%;
+}
+   
