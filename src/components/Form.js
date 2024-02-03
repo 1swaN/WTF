@@ -55,75 +55,88 @@ function Form() {
 
   return (
     <form className="contact__form" action="../database/send.php" method="post">
-      {name.isDirty && name.isEmpty && (
-        <div className="form__error">{t("error.empty")}</div>
-      )}
-      {name.isDirty && name.minLengthError && (
-        <div className="form__error">{t("error.length")}</div>
-      )}
-      <input
-        onBlur={(e) => name.onBlur(e)}
-        value={name.value}
-        onChange={(e) => name.onChange(e)}
-        className="name__input input form__control element-animation"
-        type="text"
-        placeholder={t("contact.name")}
-        name="name"
-        required
-      />
+      
+      <div className="input__data">
+        <input
+          onBlur={(e) => name.onBlur(e)}
+          value={name.value}
+          onChange={(e) => name.onChange(e)}
+          className="name__input input form__control element-animation"
+          type="text"
+          placeholder={t("contact.name")}
+          name="name"
+          required
+        />
+        {name.isDirty && name.isEmpty && (
+          <div className="form__error">{t("error.empty")}</div>
+        )}
+        {name.isDirty && name.minLengthError && (
+          <div className="form__error">{t("error.length")}</div>
+        )}
+      </div>
+      
+      <div className="input__data">
+        <input
+          onBlur={(e) => surname.onBlur(e)}
+          value={surname.value}
+          onChange={(e) => surname.onChange(e)}
+          className="surname__input input form__control element-animation"
+          type="text"
+          placeholder={t("contact.surname")}
+          name="surname"
+          required
+        />
+        {surname.isDirty && surname.isEmpty && (
+          <div className="form__error">{t("error.empty")}</div>
+        )}
+        {surname.isDirty && surname.minLengthError && (
+          <div className="form__error">{t("error.length")}</div>
+        )}
+      </div>
+      
 
-      {surname.isDirty && surname.isEmpty && (
+      <div className="input__data">
+        <input
+          onBlur={(e) => email.onBlur(e)}
+          value={email.value}
+          onChange={(e) => email.onChange(e)}
+          className="email__input input form__control element-animation"
+          type="email"
+          placeholder={t("contact.email")}
+          name="email"
+          required
+        />
+        {email.isDirty && email.emailError && (
+          <div className="form__error">{t("error.invalidEmail")}</div>
+        )}
+        {email.isDirty && email.isEmpty && (
+          <div className="form__error">{t("error.empty")}</div>
+        )}
+        {email.isDirty && email.minLengthError && (
+          <div className="form__error">{t("error.length")}</div>
+        )}
+      </div>
+      
+      <div className="input__data">
+        <textarea
+          onBlur={(e) => text.onBlur(e)}
+          value={text.value}
+          onChange={(e) => text.onChange(e)}
+          className="form__textarea form__control element-animation"
+          name="text"
+          id="text"
+          placeholder={t("contact.text")}
+        ></textarea>
+        {text.isDirty && text.isEmpty && (
         <div className="form__error">{t("error.empty")}</div>
-      )}
-      {surname.isDirty && surname.minLengthError && (
-        <div className="form__error">{t("error.length")}</div>
-      )}
-      <input
-        onBlur={(e) => surname.onBlur(e)}
-        value={surname.value}
-        onChange={(e) => surname.onChange(e)}
-        className="surname__input input form__control element-animation"
-        type="text"
-        placeholder={t("contact.surname")}
-        name="surname"
-        required
-      />
+        )}
+        {text.isDirty && text.minLengthError && (
+          <div className="form__error">{t("error.length")}</div>
+        )}
+      </div>
 
-      {email.isDirty && email.emailError && (
-        <div className="form__error">{t("error.invalidEmail")}</div>
-      )}
-      {email.isDirty && email.isEmpty && (
-        <div className="form__error">{t("error.empty")}</div>
-      )}
-      {email.isDirty && email.minLengthError && (
-        <div className="form__error">{t("error.length")}</div>
-      )}
-      <input
-        onBlur={(e) => email.onBlur(e)}
-        value={email.value}
-        onChange={(e) => email.onChange(e)}
-        className="email__input input form__control element-animation"
-        type="email"
-        placeholder={t("contact.email")}
-        name="email"
-        required
-      />
-
-      {text.isDirty && text.isEmpty && (
-        <div className="form__error">{t("error.empty")}</div>
-      )}
-      {text.isDirty && text.minLengthError && (
-        <div className="form__error">{t("error.length")}</div>
-      )}
-      <textarea
-        onBlur={(e) => text.onBlur(e)}
-        value={text.value}
-        onChange={(e) => text.onChange(e)}
-        className="form__textarea form__control element-animation"
-        name="text"
-        id="text"
-        placeholder={t("contact.text")}
-      ></textarea>
+      
+      
       <button onSubmit={handleSubmit}
         disabled={
           !name.inputValid ||
