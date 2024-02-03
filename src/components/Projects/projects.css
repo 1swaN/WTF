@@ -65,7 +65,7 @@
   background-color: var(--outline); /* Цвет линии при наведении на нее курсора мыши */
   display: block;
   content: "";
-  height: 2px; /* Высота линии */
+  height: 1px; /* Высота линии */
   width: 0%;
   -webkit-transition: width .3s ease-in-out;
   -moz--transition: width .3s ease-in-out;

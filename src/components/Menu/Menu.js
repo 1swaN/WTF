@@ -5,7 +5,7 @@ import useLocalStorage from '../../hooks/use-localstorage';
 import i18n from '../../i18n';
 import { changeLanguage } from "i18next";
 import LanguageSwitcher from "../LanguageSwitcher/LanguageSwitcher";
-
+import '../Projects/projects.css'
 
 function Menu() {
   useEffect(() => {
@@ -109,17 +109,17 @@ function Menu() {
       <nav className="menu__body">
         <ul className="menu__list">
           <li>
-            <a data-goto=".about-section" href="#" className="menu__link">
+            <a data-goto=".about-section" href="#" className="menu__link link-ease-in-out">
               <span className="highlight link-hl">01.</span>{t('header.about')}
             </a>
           </li>
           <li>
-            <a data-goto=".work-section" href="#" className="menu__link">
+            <a data-goto=".work-section" href="#" className="menu__link link-ease-in-out">
               <span className="highlight link-hl">02.</span>{t('header.projects')}
             </a>
           </li>
           <li>
-            <a data-goto=".contact-section" href="#" className="menu__link">
+            <a data-goto=".contact-section" href="#" className="menu__link link-ease-in-out">
               <span className="highlight link-hl">03.</span>{t('header.contact')}
             </a>
           </li>
